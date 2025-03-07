@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 
@@ -7,13 +8,15 @@ import numpy as np
 from element import Element
 
 
-def save_simulation(element: Element, fig: plt.Figure) -> None:
+def save_simulation(element: Element, fig: plt.Figure, decay_counts: np.ndarray, N_theoretical: np.ndarray) -> None:
     """
     Guarda la simulació com una imatge en una carpeta específica per a l'element.
 
     Arguments:
         element (Element): Un objecte de la classe `Element` que conté la informació de l'element a simular.
         fig (plt.Figure): La figura de matplotlib que conté la gràfica de la simulació a guardar.
+        decay_counts (np.ndarray): Array amb els valors de la desintegració simulada.
+        N_theoretical (np.ndarray): Array amb els valors de la desintegració teòrica.
 
     Returns:
         None: La funció guarda la imatge de la gràfica en el directori corresponent.
@@ -49,8 +52,19 @@ def save_simulation(element: Element, fig: plt.Figure) -> None:
     with open(metadata_filename, 'w') as metadata_file:
         json.dump(metadata, metadata_file, indent=4)
 
+    # Guardar els valors de la simulació i la desintegració teòrica com a CSV
+    csv_filename = os.path.join(subdir_path, 'simulation_data.csv')
+    with open(csv_filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        # Escriure els noms de les columnes
+        writer.writerow(["Time Step", "Simulated Decay", "Theoretical Decay"])
 
-def simulate(element: Element) -> plt.Figure:
+        # Escriure les dades
+        for t, (simulated, theoretical) in enumerate(zip(decay_counts, N_theoretical)):
+            writer.writerow([t, simulated, theoretical])
+
+
+def simulate(element: Element, show_plot: bool = True) -> plt.Figure:
     """
     Simula la desintegració radioactiva d'un element i compara els resultats simulats amb l'aproximació teòrica.
 
@@ -59,6 +73,7 @@ def simulate(element: Element) -> plt.Figure:
 
     Arguments:
         element (Element): Un objecte de la classe `Element` que conté la informació de l'element a simular.
+        show_plot (bool, opcional): Ensenyar o no la gràfica un cop simulat.
 
     Returns:
         None: La funció només realitza la simulació i mostra un gràfic amb els resultats.
@@ -121,7 +136,9 @@ def simulate(element: Element) -> plt.Figure:
         bbox=dict(facecolor='white', edgecolor='#cccccc', boxstyle="round,pad=0.2", alpha=0.85)
     )
 
-    save_simulation(element, fig)
-    plt.show()
+    save_simulation(element, fig, decay_counts, N_theoretical)
+
+    if show_plot:
+        plt.show()
 
     return fig
