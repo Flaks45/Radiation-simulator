@@ -1,2 +1,1 @@
-# Radiation_simulator
-.
+# Simulació de desintegració radioactiva
