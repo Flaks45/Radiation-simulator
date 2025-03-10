@@ -64,7 +64,7 @@ def save_simulation(element: Element, fig: plt.Figure, decay_counts: np.ndarray,
             writer.writerow([t, simulated, theoretical])
 
 
-def simulate(element: Element, show_plot: bool = True) -> plt.Figure:
+def simulate(element: Element, *, show_plot: bool = True) -> plt.Figure:
     """
     Simula la desintegració radioactiva d'un element i compara els resultats simulats amb l'aproximació teòrica.
 

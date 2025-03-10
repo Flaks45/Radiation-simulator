@@ -10,7 +10,7 @@ class Element:
         N0 (int): Nombre inicial d'àtoms o partícules de l'element.
         half_life (float, opcional): Temps de semidesintegració en segons. Necessari si no es proporciona la constant de desintegració.
         lambda_decay (float, opcional): Constant de desintegració. Necessària si no es proporciona el temps de semidesintegració.
-        time_steps (int, opcional): Temps de simulació. Per defecte 1 hora = 3600ss.
+        time_steps (int, opcional): Temps de simulació. Per defecte 1 hora = 3600s.
         precision (int, opcional): Segons per pas de simulació. Per defecte 1s.
     """
 
@@ -22,7 +22,7 @@ class Element:
         self.precision = precision
 
         if time_steps % precision:
-            raise ValueError("Per favor utilitza una precisió múltiple del temps de simulació.")
+            raise ValueError("Per favor, utilitza una precisió múltiple del temps de simulació.")
 
         # Calcular temps de semidesintegració o constant de desintegració
         if half_life is None and lambda_decay is None:

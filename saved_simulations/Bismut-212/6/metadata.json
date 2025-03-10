@@ -1,0 +1,8 @@
+{
+    "name": "Bismut-212",
+    "initial_atoms": 1000,
+    "half_life": 3636.0,
+    "lambda_decay": 0.00019063453810779573,
+    "precision": 1,
+    "time_steps": 36000
+}

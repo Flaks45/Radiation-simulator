@@ -1,0 +1,8 @@
+{
+    "name": "Zirconi-89",
+    "initial_atoms": 1000,
+    "half_life": 282275.99999999994,
+    "lambda_decay": 2.4555654060562903e-06,
+    "precision": 3600,
+    "time_steps": 1800000
+}
