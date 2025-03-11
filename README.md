@@ -20,7 +20,7 @@ L'exemple de `main.py` simula la desintegració del Bismut-212 (ambdues opcions 
 ^{212}_{83}\text{Bi} \rightarrow ^{208}_{81}\text{Tl} + ^{4}_{2}\alpha
 ```
 ```math
-^{212}_{83}\text{Bi} \rightarrow ^{212}_{84}\text{Po} + ^{0}_{-1}\beta
+^{212}_{83}\text{Bi} \rightarrow ^{212}_{84}\text{Po} + ^{0}_{-1}\beta + \bar{\nu}_e
 ```
 
 ### Classe `Element`
