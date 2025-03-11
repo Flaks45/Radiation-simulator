@@ -7,17 +7,17 @@ class Element:
 
     Attributes:
         name (str): Nom de l'element.
-        N0 (int): Nombre inicial d'àtoms o partícules de l'element.
+        n0 (int): Nombre inicial d'àtoms o partícules de l'element.
         half_life (float, opcional): Temps de semidesintegració en segons. Necessari si no es proporciona la constant de desintegració.
         lambda_decay (float, opcional): Constant de desintegració. Necessària si no es proporciona el temps de semidesintegració.
         time_steps (int, opcional): Temps de simulació. Per defecte 1 hora = 3600s.
         precision (int, opcional): Segons per pas de simulació. Per defecte 1s.
     """
 
-    def __init__(self, name: str, N0: int, half_life: float = None, lambda_decay: float = None,
+    def __init__(self, name: str, n0: int, half_life: float = None, lambda_decay: float = None,
                  time_steps: int = 3600, precision: int = 1):
         self.name = name
-        self.N0 = N0
+        self.n0 = n0
         self.time_steps = time_steps
         self.precision = precision
 

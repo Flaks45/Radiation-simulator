@@ -22,7 +22,7 @@ L'exemple de `main.py` simula la desintegració del Bismut-212 (ambdues opcions 
 ### Classe `Element`
 Informació sobre la desintegració d'un element:
 - Nom de l'element (`name`: str)
-- Nombre d'àtoms inicials N₀ (`N0`: int)
+- Nombre d'àtoms inicials N₀ (`n0`: int)
 - Temps de semidesintegració τ (`half_life`: float)
 - Constant de desintegració λ (`lambda_decay`: float)
 - Temps de simulació (`time_steps`: int)
