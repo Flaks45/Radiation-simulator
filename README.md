@@ -2,7 +2,8 @@
 Programa que simula la desintegració radioactiva d'un element i genera la seva gràfica.
 
 ### Instal·lació
-#### Es necessita Python 3.9 o versions posteriors.
+**Es necessita Python 3.9 o versions posteriors.**
+
 Per instal·lar les dependències d'aquest projecte, executa:
 ```bash
 # Linux/macOS
